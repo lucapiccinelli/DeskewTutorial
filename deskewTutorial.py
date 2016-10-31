@@ -78,3 +78,15 @@ hSpace[hSpace < 0.8] = 0
 hist = sum(hSpace)
 #calcolo dell'angolo perpendicolare
 theta1 = 90 - np.argmax(hist)
+
+
+#rilettura dell'immagine a colori
+im = cv2.imread(r'img\text.jpg', cv2.IMREAD_COLOR)
+
+#rotazione dell'immagine
+h, w, d = im.shape
+rotation_M = cv2.getRotationMatrix2D((w / 2, h / 2), -theta1, 1)
+rotated_im = cv2.warpAffine(im, rotation_M, (w,h), flags=cv2.INTER_CUBIC)
+
+#scrittura su disco
+cv2.imwrite(r'img\rotated.jpg', rotated_im)
