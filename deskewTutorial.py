@@ -71,3 +71,10 @@ fig, ax = plt.subplots(figsize=(10, 10))
 cax = ax.imshow(hSpace, extent=[0,w,0,h])
 plt.colorbar(cax, ticks=[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
 plt.show()
+
+#filtraggio dei picchi
+hSpace[hSpace < 0.8] = 0
+#calcolo dell'istogramma
+hist = sum(hSpace)
+#calcolo dell'angolo perpendicolare
+theta1 = 90 - np.argmax(hist)
