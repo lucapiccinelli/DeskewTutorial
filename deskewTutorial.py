@@ -62,4 +62,12 @@ im = cv2.resize(im, (w/4,h/4))
 #canny edge detector
 im = cv2.Canny(im, 100, 200)
 
-plt.imshow(im, cmap='Greys_r')
+#applicazione del calcolo dello spazio di hough all'immagine di input
+hSpace = houghSpace(im)
+
+#visualizzazione dello spazio risultante
+h, w = hSpace.shape
+fig, ax = plt.subplots(figsize=(10, 10))
+cax = ax.imshow(hSpace, extent=[0,w,0,h])
+plt.colorbar(cax, ticks=[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
+plt.show()
