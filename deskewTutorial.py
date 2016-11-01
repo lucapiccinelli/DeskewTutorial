@@ -51,9 +51,10 @@ def houghSpace(im):
     houghSpace = houghSpace / m
     return np.reshape(houghSpace , (houghMatrixRows, houghMatrixCols)) #reshape in forma matriciale
 
+filename = r'img\img3.jpg'
 
 #caricamento dell'immagine da disco
-im = cv2.imread(r'img\text.jpg', cv2.IMREAD_GRAYSCALE)
+im = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
 
 h, w = im.shape
 #ridimensionamento dell'immagine
@@ -81,7 +82,7 @@ theta1 = 90 - np.argmax(hist)
 
 
 #rilettura dell'immagine a colori
-im = cv2.imread(r'img\text.jpg', cv2.IMREAD_COLOR)
+im = cv2.imread(filename, cv2.IMREAD_COLOR)
 
 #rotazione dell'immagine
 h, w, d = im.shape
